@@ -57,7 +57,7 @@ stdenv.mkDerivation rec {
     for f in $out/lib/*.dylib; do
           install_name_tool -id $out/lib/$(basename $f) $f || true
     done
-    /Applications/Xcode.app/Contents//Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/install_name_tool -change /usr/local/opt/pcre/lib/libpcre.1.dylib $out/lib/libpcre.1.dylib $out/bin/${binary_out}
+    /Library/Developer/CommandLineTools/usr/bin/install_name_tool -change /usr/local/opt/pcre/lib/libpcre.1.dylib $out/lib/libpcre.1.dylib $out/bin/${binary_out}
   '';
 
   meta = with lib; {
